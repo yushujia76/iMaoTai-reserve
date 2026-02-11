@@ -24,6 +24,10 @@ PUSH_TOKEN = os.environ.get("PUSHPLUS_KEY")
 # server酱 微信推送。使用参考 https://sct.ftqq.com/
 SCKEY = os.environ.get('SCKEY')
 
+# 钉钉webhook推送
+DINGTALK_WEBHOOK = os.environ.get('DINGTALK_WEBHOOK')
+DINGTALK_SECRET = os.environ.get('DINGTALK_SECRET')
+
 
 '''
 *********** 地图配置 ***********
@@ -54,10 +58,10 @@ PRIVATE_AES_KEY = os.environ.get("PRIVATE_AES_KEY")
 
 '''
 *********** 预约规则配置 ************
-因为目前支持代提的还是少,所以建议默认预约最近的门店
+因为目前因为目前支持代提的还是少,所以建议默认预约最近的门店
 '''
 _RULES = {
-    'MIN_DISTANCE': 0,   # 预约你的位置最近的门店
-    'MAX_SALES': 1,      # 预约本市出货量最大的门店
+    'MIN_DISTANCE': 0,   # 预约你的位置最近门店
+    'MAX_SALES': 1,      # 预约本市出货量最大门店
 }
 RESERVE_RULE = 0         # 在这里配置你的规则，只能选择其中一个

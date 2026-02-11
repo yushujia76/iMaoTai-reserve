@@ -7,6 +7,7 @@ import login
 import process
 import privateCrypt
 import send_message
+import dingtalk_push
 
 DATE_FORMAT = "%m/%d/%Y %H:%M:%S %p"
 TODAY = datetime.date.today().strftime("%Y%m%d")
@@ -82,5 +83,14 @@ for section in configs.sections():
         print(e)
         logging.error(e)
 
-# 推送消息
-send_message.send_server_chan(config.SCKEY, s_title, s_content)
+# 推送消息（Server酱微信推送）
+try:
+    send_message.send_server_chan(config.SCKEY, s_title, s_content)
+except Exception as e:
+    pass
+
+# 推送消息（钉钉webhook推送）
+try:
+    dingtalk_push.send_dingtalk_message(s_title, s_content)
+except Exception as e:
+    pass
